@@ -13,7 +13,18 @@ import {
 import { dashboard } from '@/routes';
 import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/react';
-import { BookOpen, Folder, LayoutGrid } from 'lucide-react';
+import { 
+    BookOpen, 
+    Folder, 
+    LayoutGrid, 
+    Gavel, 
+    BarChart3, 
+    Wallet, 
+    Users, 
+    ShieldCheck, 
+    FileText, 
+    Inbox 
+} from 'lucide-react';
 import AppLogo from './app-logo';
 
 const mainNavItems: NavItem[] = [
@@ -24,14 +35,52 @@ const mainNavItems: NavItem[] = [
     },
 ];
 
+const moduleNavItems: NavItem[] = [
+    {
+        title: 'Jurídica',
+        href: '#',
+        icon: Gavel,
+    },
+    {
+        title: 'Planeación',
+        href: '#',
+        icon: BarChart3,
+    },
+    {
+        title: 'Financiera',
+        href: '#',
+        icon: Wallet,
+    },
+    {
+        title: 'Talento Humano',
+        href: '#',
+        icon: Users,
+    },
+    {
+        title: 'Control Interno',
+        href: '#',
+        icon: ShieldCheck,
+    },
+    {
+        title: 'Gestión Documental',
+        href: '#',
+        icon: FileText,
+    },
+    {
+        title: 'Recepción',
+        href: '#',
+        icon: Inbox,
+    },
+];
+
 const footerNavItems: NavItem[] = [
     {
-        title: 'Repository',
+        title: 'Repositorio',
         href: 'https://github.com/laravel/react-starter-kit',
         icon: Folder,
     },
     {
-        title: 'Documentation',
+        title: 'Documentación',
         href: 'https://laravel.com/docs/starter-kits#react',
         icon: BookOpen,
     },
@@ -39,7 +88,7 @@ const footerNavItems: NavItem[] = [
 
 export function AppSidebar() {
     return (
-        <Sidebar collapsible="icon" variant="inset">
+        <Sidebar collapsible="icon" variant="floating">
             <SidebarHeader>
                 <SidebarMenu>
                     <SidebarMenuItem>
@@ -54,6 +103,7 @@ export function AppSidebar() {
 
             <SidebarContent>
                 <NavMain items={mainNavItems} />
+                <NavMain items={moduleNavItems} label="Gestión" />
             </SidebarContent>
 
             <SidebarFooter>

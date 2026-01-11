@@ -14,21 +14,21 @@ import { UserPlus } from 'lucide-react';
 export default function Register() {
     return (
         <AuthLayout
-            title="Registro de Personal"
-            description="Completa los datos para solicitar tu acceso al sistema FONDEXUS"
+            title="Nuevo Registro"
+            description="Solicitud de acceso para funcionarios"
         >
             <Head title="Registro" />
             <Form
                 {...store.form()}
                 resetOnSuccess={['password', 'password_confirmation']}
                 disableWhileProcessing
-                className="flex flex-col gap-6 mt-4"
+                className="flex flex-col gap-5"
             >
                 {({ processing, errors }) => (
                     <>
-                        <div className="grid gap-4">
-                            <div className="grid gap-2">
-                                <Label htmlFor="name" className="text-sm font-semibold text-slate-700 dark:text-zinc-300">
+                        <div className="space-y-4">
+                            <div className="space-y-1.5">
+                                <Label htmlFor="name" className="text-xs font-semibold uppercase tracking-wider text-zinc-500 dark:text-zinc-400 pl-1">
                                     Nombre Completo
                                 </Label>
                                 <Input
@@ -40,13 +40,13 @@ export default function Register() {
                                     autoComplete="name"
                                     name="name"
                                     placeholder="Ej: Nicolás García"
-                                    className="h-11 rounded-xl border-slate-200 dark:border-zinc-800 bg-slate-50/50 dark:bg-zinc-900 focus:ring-2 focus:ring-indigo-500 transition-all"
+                                    className="h-11 bg-zinc-50 dark:bg-zinc-800/50 border-zinc-200 dark:border-zinc-700 rounded-xl focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all placeholder:text-zinc-400"
                                 />
                                 <InputError message={errors.name} />
                             </div>
 
-                            <div className="grid gap-2">
-                                <Label htmlFor="email" className="text-sm font-semibold text-slate-700 dark:text-zinc-300">
+                            <div className="space-y-1.5">
+                                <Label htmlFor="email" className="text-xs font-semibold uppercase tracking-wider text-zinc-500 dark:text-zinc-400 pl-1">
                                     Correo Institucional
                                 </Label>
                                 <Input
@@ -56,15 +56,15 @@ export default function Register() {
                                     tabIndex={2}
                                     autoComplete="email"
                                     name="email"
-                                    placeholder="usuario@fondescol.gov.co"
-                                    className="h-11 rounded-xl border-slate-200 dark:border-zinc-800 bg-slate-50/50 dark:bg-zinc-900 focus:ring-2 focus:ring-indigo-500 transition-all"
+                                    placeholder="nombre@fondescol.gov.co"
+                                    className="h-11 bg-zinc-50 dark:bg-zinc-800/50 border-zinc-200 dark:border-zinc-700 rounded-xl focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all placeholder:text-zinc-400"
                                 />
                                 <InputError message={errors.email} />
                             </div>
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <div className="grid gap-2">
-                                    <Label htmlFor="password" name="password" className="text-sm font-semibold text-slate-700 dark:text-zinc-300">
+                                <div className="space-y-1.5">
+                                    <Label htmlFor="password" name="password" className="text-xs font-semibold uppercase tracking-wider text-zinc-500 dark:text-zinc-400 pl-1">
                                         Contraseña
                                     </Label>
                                     <Input
@@ -75,12 +75,12 @@ export default function Register() {
                                         autoComplete="new-password"
                                         name="password"
                                         placeholder="••••••••"
-                                        className="h-11 rounded-xl border-slate-200 dark:border-zinc-800 bg-slate-50/50 dark:bg-zinc-900 focus:ring-2 focus:ring-indigo-500 transition-all"
+                                        className="h-11 bg-zinc-50 dark:bg-zinc-800/50 border-zinc-200 dark:border-zinc-700 rounded-xl focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all"
                                     />
                                 </div>
 
-                                <div className="grid gap-2">
-                                    <Label htmlFor="password_confirmation" className="text-sm font-semibold text-slate-700 dark:text-zinc-300">
+                                <div className="space-y-1.5">
+                                    <Label htmlFor="password_confirmation" className="text-xs font-semibold uppercase tracking-wider text-zinc-500 dark:text-zinc-400 pl-1">
                                         Confirmar
                                     </Label>
                                     <Input
@@ -91,7 +91,7 @@ export default function Register() {
                                         autoComplete="new-password"
                                         name="password_confirmation"
                                         placeholder="••••••••"
-                                        className="h-11 rounded-xl border-slate-200 dark:border-zinc-800 bg-slate-50/50 dark:bg-zinc-900 focus:ring-2 focus:ring-indigo-500 transition-all"
+                                        className="h-11 bg-zinc-50 dark:bg-zinc-800/50 border-zinc-200 dark:border-zinc-700 rounded-xl focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all"
                                     />
                                 </div>
                             </div>
@@ -102,18 +102,28 @@ export default function Register() {
 
                             <Button
                                 type="submit"
-                                className="h-12 w-full bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-bold shadow-lg shadow-indigo-200 dark:shadow-none transition-all active:scale-[0.98] mt-2"
+                                className="group h-11 w-full bg-zinc-900 hover:bg-zinc-800 dark:bg-white dark:hover:bg-zinc-200 text-white dark:text-zinc-900 rounded-full font-medium shadow-lg shadow-zinc-500/20 dark:shadow-none transition-all active:scale-[0.98] mt-2"
                                 tabIndex={5}
                                 disabled={processing}
                             >
-                                {processing ? <Spinner className="mr-2 h-4 w-4" /> : <UserPlus className="mr-2 h-4 w-4" />}
-                                Crear Cuenta
+                                {processing ? (
+                                    <Spinner className="mr-2 h-4 w-4 text-white dark:text-zinc-900" />
+                                ) : (
+                                    <span className="flex items-center justify-center">
+                                        Crear Cuenta
+                                        <UserPlus className="ml-2 h-4 w-4 transition-transform group-hover:scale-110" />
+                                    </span>
+                                )}
                             </Button>
                         </div>
 
-                        <div className="text-center text-sm text-slate-500 dark:text-zinc-500">
-                            ¿Ya tienes un usuario?{' '}
-                            <TextLink href={login()} tabIndex={6} className="font-bold text-indigo-600 hover:text-indigo-500 underline underline-offset-4">
+                        <div className="text-center mt-2">
+                            <span className="text-sm text-zinc-500 dark:text-zinc-400">¿Ya tienes cuenta? </span>
+                            <TextLink 
+                                href={login()} 
+                                tabIndex={6} 
+                                className="text-sm font-semibold text-zinc-900 dark:text-white hover:underline decoration-zinc-300 underline-offset-4 transition-all"
+                            >
                                 Iniciar Sesión
                             </TextLink>
                         </div>
