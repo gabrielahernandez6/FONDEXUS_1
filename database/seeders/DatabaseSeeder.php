@@ -13,11 +13,19 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        $this->call([
+            RoleSeeder::class,
+            AreaSeeder::class,
+        ]);
+
+        $adminRole = \App\Models\Role::where('slug', 'admin')->first();
+        $techArea = \App\Models\Area::where('slug', 'tech')->first();
 
         User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+            'name' => 'Admin User',
+            'email' => 'admin@fondexus.com',
+            'role_id' => $adminRole?->id,
+            'area_id' => $techArea?->id,
         ]);
     }
 }
