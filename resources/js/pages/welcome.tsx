@@ -83,12 +83,6 @@ export default function Welcome() {
                                     <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                                 </Link>
                                 
-                                <Link 
-                                    href={route('register')}
-                                    className="w-full sm:w-auto inline-flex h-12 items-center justify-center rounded-full border border-zinc-200 dark:border-zinc-800 bg-transparent px-8 text-sm font-medium text-zinc-900 dark:text-zinc-100 shadow-sm transition-colors hover:bg-zinc-100 dark:hover:bg-zinc-800 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-zinc-950"
-                                >
-                                    Registro de Funcionarios
-                                </Link>
                             </>
                         )}
                     </div>
