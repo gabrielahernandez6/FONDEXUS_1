@@ -63,4 +63,21 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Area::class);
     }
+
+    public function hasRole(string $slug): bool
+    {
+        return $this->role?->slug === $slug;
+    }
+
+    public function hasAnyRole(array $slugs): bool
+    {
+        $current = $this->role?->slug;
+
+        return $current !== null && in_array($current, $slugs, true);
+    }
+
+    public function inArea(string $slug): bool
+    {
+        return $this->area?->slug === $slug;
+    }
 }
