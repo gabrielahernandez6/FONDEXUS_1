@@ -2,6 +2,7 @@
 
 namespace App\Models\Juridica;
 
+use Database\Factories\LeyVigenteFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -25,4 +26,9 @@ class LeyVigente extends Model
         'fecha_publicacion' => 'date',
         'tags' => 'array',
     ];
+
+    protected static function newFactory(): LeyVigenteFactory
+    {
+        return LeyVigenteFactory::new();
+    }
 }

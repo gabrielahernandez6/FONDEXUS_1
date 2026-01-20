@@ -16,6 +16,10 @@ Route::middleware(['web', 'auth'])->prefix('dashboard')->group(function (): void
 });
 
 Route::middleware(['web', 'auth'])->prefix('juridica')->group(function (): void {
+    Route::post('procesos/{proceso_juridico}/documento', [ProcesoJuridicoController::class, 'uploadDocumento']);
+    Route::get('procesos/{proceso_juridico}/documento/signed-url', [ProcesoJuridicoController::class, 'documentoSignedUrl']);
+    Route::delete('procesos/{proceso_juridico}/documento', [ProcesoJuridicoController::class, 'deleteDocumento']);
+
     Route::apiResource('procesos', ProcesoJuridicoController::class)->parameters([
         'procesos' => 'proceso_juridico',
     ]);

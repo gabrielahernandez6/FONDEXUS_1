@@ -2,6 +2,7 @@
 
 namespace App\Models\Juridica;
 
+use Database\Factories\PublicacionSecopFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -34,5 +35,10 @@ class PublicacionSecop extends Model
     public function procesoJuridico(): BelongsTo
     {
         return $this->belongsTo(ProcesoJuridico::class, 'proceso_juridico_id');
+    }
+
+    protected static function newFactory(): PublicacionSecopFactory
+    {
+        return PublicacionSecopFactory::new();
     }
 }

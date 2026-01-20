@@ -3,6 +3,7 @@
 namespace App\Models\Juridica;
 
 use App\Models\User;
+use Database\Factories\ProcesoJuridicoFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -45,5 +46,10 @@ class ProcesoJuridico extends Model
     public function publicacionesSecop(): HasMany
     {
         return $this->hasMany(PublicacionSecop::class, 'proceso_juridico_id');
+    }
+
+    protected static function newFactory(): ProcesoJuridicoFactory
+    {
+        return ProcesoJuridicoFactory::new();
     }
 }
